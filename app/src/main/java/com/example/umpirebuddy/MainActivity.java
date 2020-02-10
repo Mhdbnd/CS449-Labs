@@ -2,15 +2,14 @@ package com.example.umpirebuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-   int sCounter = 0;
-   int bCounter = 0;
+    private int sCounter = 0;
+    private int bCounter = 0;
     Button strike, ball, reset, exit;
     TextView numstrike, numball;
 
@@ -25,10 +24,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sCounter++;
-                if(sCounter == 3){
-                    strike.setEnabled(false);
-                    startActivity(new Intent(MainActivity.this, about.class));
-                }
                 numstrike.setText(Integer.toString(sCounter));
             }
         });
