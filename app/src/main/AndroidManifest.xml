@@ -16,7 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aboutPop"></activity>
+        <activity android:name=".aboutPop"
+            android:theme="@style/AppTheme.Custom">
+        </activity>
+        <activity android:name=".StrikePop"
+            android:theme="@style/AppTheme.Custom">
+        </activity>
+        <activity android:name=".ballPop"
+            android:theme="@style/AppTheme.Custom">
+        </activity>
     </application>
 
 </manifest>

@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private int sCounter = 0;
     private int bCounter = 0;
-    Button strike, ball, reset, exit;
+    Button strike, ball, reset, exit, aboutB;
     TextView numstrike, numball;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
                 sCounter++;
                 if (sCounter == 3){
                     strike.setEnabled(false);
-
+                    startActivity(new Intent(MainActivity.this, StrikePop.class));
                 }
-                numstrike.setText(Integer.toString(sCounter));
+                numstrike.setText(String.valueOf(sCounter));
             }
         });
 
@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 bCounter++;
+                if (bCounter == 4){
+                    ball.setEnabled(false);
+                    startActivity(new Intent(MainActivity.this, ballPop.class));
+                }
                 numball.setText(Integer.toString(bCounter));
             }
         });
@@ -64,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button aboutButton =findViewById(R.id.about);
-        aboutButton.setOnClickListener(new View.OnClickListener() {
+        aboutB = (Button) findViewById(R.id.aboutButton);
+        aboutB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, aboutPop.class));
