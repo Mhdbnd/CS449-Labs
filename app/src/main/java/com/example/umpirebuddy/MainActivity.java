@@ -2,6 +2,7 @@ package com.example.umpirebuddy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sCounter++;
+                if (sCounter == 3){
+                    strike.setEnabled(false);
+
+                }
                 numstrike.setText(Integer.toString(sCounter));
             }
         });
@@ -58,7 +63,14 @@ public class MainActivity extends AppCompatActivity {
                 System.exit(0);
             }
         });
+
+        Button aboutButton =findViewById(R.id.about);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, aboutPop.class));
+            }
+        });
+        }
+
     }
-
-
-}
